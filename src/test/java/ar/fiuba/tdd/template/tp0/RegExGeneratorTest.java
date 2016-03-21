@@ -2,18 +2,19 @@ package ar.fiuba.tdd.template.tp0;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class RegExGeneratorTest {
 
     private boolean validate(String regEx, int numberOfResults) {
-        RegExGenerator generator = new RegExGenerator();
-        // TODO: Uncomment parameters
-        List<String> results = generator.generate(/*regEx, numberOfResults*/);
+        RegExGenerator generator = new RegExGenerator(500);
+        List<String> results = generator.generate(regEx, numberOfResults);
         // force matching the beginning and the end of the strings
         Pattern pattern = Pattern.compile("^" + regEx + "$");
         return results
@@ -26,12 +27,38 @@ public class RegExGeneratorTest {
                     (item1, item2) -> item1 && item2);
     }
 
+    @Test
+    public void validateChar(){
+        RegExGenerator generator = new RegExGenerator(500);
+        int cantChars = 10;
+        String cadena = generator.generateRandomCharacter(cantChars);
+        //    for (int i = 0; i < cadena.size(); i++) {
+        //       System.out.println(cadena.get(i));
+        //  }
+
+        assertTrue(true);
+    }
+
+    @Test
+    public void gen(){
+        RegExGenerator generator = new RegExGenerator(50);
+        List<String> words = generator.generate("..+[ab]*d?c", 1);
+        //for (int i = 0; i < words.size(); i++) {
+        //    System.out.println(words.get(i));
+        //}
+        assertTrue(true);
+
+    }
+
     //TODO: Uncomment these tests
-    /*
     @Test
     public void testAnyCharacter() {
+
         assertTrue(validate(".", 1));
     }
+
+    @Test
+    public void testAnyCharacterTwice() { assertTrue(validate(".", 2));  }
 
     @Test
     public void testMultipleCharacters() {
@@ -49,6 +76,11 @@ public class RegExGeneratorTest {
     }
 
     @Test
+    public void testLiteralDotCharacterN() {
+        assertTrue(validate("\\@..", 5));
+    }
+
+    @Test
     public void testZeroOrOneCharacter() {
         assertTrue(validate("\\@.h?", 1));
     }
@@ -62,6 +94,20 @@ public class RegExGeneratorTest {
     public void testCharacterSetWithQuantifiers() {
         assertTrue(validate("[abc]+", 1));
     }
-    */
-    // TODO: Add more tests!!!
+
+    @Test
+    public void testChar(){
+        assertTrue(validate("\\\\p",1));
+    }
+
+    @Test
+    public void testLetter(){ assertTrue(validate("a",1));}
+
+    @Test
+    public void testScapedValueInSet() { assertTrue(validate("[hij\\(]+", 1));}
+
+    @Test
+    public void testScapedValueInSet2() { assertTrue(validate("[ab\\@cj\\(]+", 1));}
+
+
 }
