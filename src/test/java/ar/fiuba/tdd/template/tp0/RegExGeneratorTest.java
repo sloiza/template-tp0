@@ -2,7 +2,6 @@ package ar.fiuba.tdd.template.tp0;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -32,25 +31,19 @@ public class RegExGeneratorTest {
         RegExGenerator generator = new RegExGenerator(500);
         int cantChars = 10;
         String cadena = generator.generateRandomCharacter(cantChars);
-        //    for (int i = 0; i < cadena.size(); i++) {
-        //       System.out.println(cadena.get(i));
-        //  }
-
-        assertTrue(true);
+        assertEquals(true, cadena.length() == 10);
     }
 
     @Test
-    public void gen(){
+    public void genExample(){
         RegExGenerator generator = new RegExGenerator(50);
-        List<String> words = generator.generate("..+[ab]*d?c", 1);
-        //for (int i = 0; i < words.size(); i++) {
-        //    System.out.println(words.get(i));
-        //}
-        assertTrue(true);
+        List<String> words = generator.generate("..+[ab]*d?c", 2);
+
+        assertEquals(true, words.size() == 2);
 
     }
 
-    //TODO: Uncomment these tests
+
     @Test
     public void testAnyCharacter() {
 
