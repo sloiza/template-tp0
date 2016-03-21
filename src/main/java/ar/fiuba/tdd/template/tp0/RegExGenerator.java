@@ -80,18 +80,17 @@ public class RegExGenerator {
                     if ((j + 1 < regEx.length()) && this.isQuantifier(regEx.charAt(j + 1))) {
                         j = j + 1;
                         char q = regEx.charAt(j);
+                        int x = 0;
                         if (q == '*') {
-                            int x = this.generateRandomInt(0, this.maxLength);
-                            palabra = palabra.concat(this.generateRandomCharacter(x));
+                            x = this.generateRandomInt(0, this.maxLength);
                         }
                         else if (q == '+') {
-                            int x = this.generateRandomInt(1, this.maxLength);
-                            palabra = palabra.concat(this.generateRandomCharacter(x));
+                            x = this.generateRandomInt(1, this.maxLength);
                         }
                         else if (q == '?') {
-                            int x = this.generateRandomInt(0, 1);
-                            palabra = palabra.concat(this.generateRandomCharacter(x));
+                            x = this.generateRandomInt(0, 1);
                         }
+                        palabra = palabra.concat(this.generateRandomCharacter(x));
                     }
                     else {
                         palabra = palabra.concat(this.generateRandomCharacter(1));
@@ -120,18 +119,17 @@ public class RegExGenerator {
                         if ((j + 1 < regEx.length()) && this.isQuantifier(regEx.charAt(j + 1))) {
                             j = j + 1;
                             char q = regEx.charAt(j);
+                            int x = 0;
                             if (q == '*') {
-                                int x = this.generateRandomInt(0, this.maxLength);
-                                palabra = palabra.concat(this.getCharacters(conj, x));
+                                x = this.generateRandomInt(0, this.maxLength);
                             }
                             else if (q == '+') {
-                                int x = this.generateRandomInt(1, this.maxLength);
-                                palabra = palabra.concat(this.getCharacters(conj, x));
+                                x = this.generateRandomInt(1, this.maxLength);
                             }
                             else if (q == '?') {
-                                int x = this.generateRandomInt(0, 1);
-                                palabra = palabra.concat(this.getCharacters(conj, x));
+                                x = this.generateRandomInt(0, 1);
                             }
+                            palabra = palabra.concat(this.getCharacters(conj, x));
                         }
                         else {
                             int x = this.generateRandomInt(1, cant - 1);
@@ -143,18 +141,17 @@ public class RegExGenerator {
                     if ((j + 1 < regEx.length()) && this.isQuantifier(regEx.charAt(j + 1))) {
                         j++;
                         char q = regEx.charAt(j);
+                        int x = 0;
                         if (q == '*') {
-                            int x = this.generateRandomInt(0, this.maxLength);
-                            palabra = palabra.concat(this.getNCharacters(c, x));
+                            x = this.generateRandomInt(0, this.maxLength);
                         }
                         else if (q == '+') {
-                            int x = this.generateRandomInt(1, this.maxLength);
-                            palabra = palabra.concat(this.getNCharacters(c, x));
+                            x = this.generateRandomInt(1, this.maxLength);
                         }
                         else if (q == '?') {
-                            int x = this.generateRandomInt(0, 1);
-                            palabra = palabra.concat(this.getNCharacters(c, x));
+                            x = this.generateRandomInt(0, 1);
                         }
+                        palabra = palabra.concat(this.getNCharacters(c, x));
                     }
                     else {
                        if (j + 1 < regEx.length()) {
@@ -163,18 +160,17 @@ public class RegExGenerator {
                             if ((j + 1 < regEx.length()) && this.isQuantifier(regEx.charAt(j + 1))) {
                                 j++;
                                 char q = regEx.charAt(j);
+                                int x = 0;
                                 if (q == '*') {
-                                    int x = this.generateRandomInt(0, this.maxLength);
-                                    palabra = palabra.concat(this.getNCharacters(value, x));
+                                    x = this.generateRandomInt(0, this.maxLength);
                                 }
                                 else if (q == '+') {
-                                    int x = this.generateRandomInt(1, this.maxLength);
-                                    palabra = palabra.concat(this.getNCharacters(value, x));
+                                    x = this.generateRandomInt(1, this.maxLength);
                                 }
                                 else if (q == '?') {
-                                    int x = this.generateRandomInt(0, 1);
-                                    palabra = palabra.concat(this.getNCharacters(value, x));
+                                    x = this.generateRandomInt(0, 1);
                                 }
+                                palabra = palabra.concat(this.getNCharacters(value, x));
                             }
                             else {
                                 palabra = palabra.concat(Character.toString(value));
@@ -188,19 +184,18 @@ public class RegExGenerator {
                 else {
                     if ((j + 1 < regEx.length()) && this.isQuantifier(regEx.charAt(j + 1))) {
                         j++;
+                        int x = 0;
                         char q = regEx.charAt(j);
                         if (q == '*') {
-                            int x = this.generateRandomInt(0, this.maxLength);
-                            palabra = palabra.concat(this.getNCharacters(c, x));
+                            x = this.generateRandomInt(0, this.maxLength);
                         }
                         else if (q == '+') {
-                            int x = this.generateRandomInt(1, this.maxLength);
-                            palabra = palabra.concat(this.getNCharacters(c, x));
+                            x = this.generateRandomInt(1, this.maxLength);
                         }
                         else if (q == '?') {
-                            int x = this.generateRandomInt(0, 1);
-                            palabra = palabra.concat(this.getNCharacters(c, x));
+                            x = this.generateRandomInt(0, 1);
                         }
+                        palabra = palabra.concat(this.getNCharacters(c, x));
 
                     }
                     else {
