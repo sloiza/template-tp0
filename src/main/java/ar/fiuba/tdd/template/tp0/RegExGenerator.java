@@ -33,11 +33,13 @@ public class RegExGenerator {
     * Generates a string of cantChar characters of a set
     * */
     protected String getCharacters(char[] conj, int cantChar) {
+
         String cadena = "";
         for (int i = 0; i < cantChar; i++) {
             int randomInt = this.generateRandomInt(0, conj.length - 1);
             char charValue = conj[randomInt];
             cadena = cadena.concat(Character.toString(charValue));
+
         }
         return cadena;
     }
@@ -57,7 +59,11 @@ public class RegExGenerator {
     * */
     private int generateRandomInt(int min, int max) {
         Random randomGenerator = new Random();
-        return randomGenerator.nextInt((max - min) + 1) + min;
+        int num = 0;
+        do {
+            num = randomGenerator.nextInt((max - min) + 1) + min;
+        } while (num > 127 && num < 160);
+        return num;
     }
     /*
     * Resize an char array to less length
@@ -203,7 +209,6 @@ public class RegExGenerator {
                     }
                 }
             }
-            System.out.println(palabra);
             words.add(palabra);
         }
 

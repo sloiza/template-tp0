@@ -27,19 +27,19 @@ public class RegExGeneratorTest {
     }
 
     @Test
-    public void validateChar(){
+    public void validateChar() {
         RegExGenerator generator = new RegExGenerator(500);
         int cantChars = 10;
         String cadena = generator.generateRandomCharacter(cantChars);
-        assertEquals(true, cadena.length() == 10);
+        assertTrue(cadena.length() == 10);
     }
 
     @Test
-    public void genExample(){
+    public void genExample() {
         RegExGenerator generator = new RegExGenerator(50);
         List<String> words = generator.generate("..+[ab]*d?c", 2);
 
-        assertEquals(true, words.size() == 2);
+        assertTrue(words.size() == 2);
 
     }
 
